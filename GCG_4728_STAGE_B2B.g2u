@@ -1,0 +1,1589 @@
+Program.Sub.ScreenSU.Start
+Gui.Form_Main..Create
+Gui.Form_Main..Caption("Stage for Shipping")
+Gui.Form_Main..Size(5775,11085)
+Gui.Form_Main..MinX(0)
+Gui.Form_Main..MinY(0)
+Gui.Form_Main..Position(0,0)
+Gui.Form_Main..BackColor(-2147483633)
+Gui.Form_Main..MaxButton(False)
+Gui.Form_Main..MinButton(False)
+Gui.Form_Main..MousePointer(0)
+Gui.Form_Main..Sizeable(False)
+Gui.Form_Main..Event(UnLoad,Form_Main_UnLoad)
+Gui.Form_Main.frameOrdLine.Create(Frame)
+Gui.Form_Main.frameOrdLine.Size(5220,3075)
+Gui.Form_Main.frameOrdLine.Position(90,105)
+Gui.Form_Main.frameOrdLine.Caption("Sales Order")
+Gui.Form_Main.lbl1.Create(Label,"Sales Order",True,1410,255,0,225,465,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lbl1.Parent("frameOrdLine")
+Gui.Form_Main.txtOrder.Create(TextBox,"",True,1215,300,0,255,690,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtOrder.Parent("frameOrdLine")
+Gui.Form_Main.txtOrder.Event(KeyPress,txtOrder_KeyPress)
+Gui.Form_Main.txtOrder.ControlGroup(1)
+Gui.Form_Main.txtOrder.DefaultValue(" ")
+Gui.Form_Main.txtOrder.Event(LostFocus,txtOrder_LostFocus)
+Gui.Form_Main.txtOrder.TabStop(True)
+Gui.Form_Main.txtOrder.TabIndex(1)
+Gui.Form_Main.cmdBrwOrd.Create(Button)
+Gui.Form_Main.cmdBrwOrd.Size(375,375)
+Gui.Form_Main.cmdBrwOrd.Position(1500,690)
+Gui.Form_Main.cmdBrwOrd.Parent("frameOrdLine")
+Gui.Form_Main.cmdBrwOrd.Caption("^")
+Gui.Form_Main.cmdBrwOrd.Event(Click,cmdBrwOrd_Click)
+Gui.Form_Main.cmdBrwLine.Create(Button)
+Gui.Form_Main.cmdBrwLine.Size(375,375)
+Gui.Form_Main.cmdBrwLine.Position(2655,675)
+Gui.Form_Main.cmdBrwLine.Parent("frameOrdLine")
+Gui.Form_Main.cmdBrwLine.Caption("^")
+Gui.Form_Main.cmdBrwLine.Event(Click,cmdBrwLine_Click)
+Gui.Form_Main.lblLine.Create(Label,"Line",True,615,255,0,1995,450,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblLine.Parent("frameOrdLine")
+Gui.Form_Main.txtLine.Create(TextBox,"",True,675,300,0,1935,675,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtLine.Parent("frameOrdLine")
+Gui.Form_Main.txtLine.ControlGroup(1)
+Gui.Form_Main.txtLine.DefaultValue(" ")
+Gui.Form_Main.txtLine.Event(LostFocus,txtLine_LostFocus)
+Gui.Form_Main.txtLine.TabStop(True)
+Gui.Form_Main.txtLine.TabIndex(2)
+Gui.Form_Main.lblPackList.Create(Label,"Packing List#",True,1440,255,0,3255,420,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblPackList.Parent("frameOrdLine")
+Gui.Form_Main.txtPackList.Create(TextBox,"",True,1380,300,0,3270,645,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtPackList.Parent("frameOrdLine")
+Gui.Form_Main.txtPackList.TabStop(True)
+Gui.Form_Main.txtPackList.TabIndex(3)
+Gui.Form_Main.txtPackList.ControlGroup(1)
+Gui.Form_Main.txtPackList.DefaultValue(" ")
+Gui.Form_Main.txtPackList.Event(LostFocus,txtPackList_LostFocus)
+Gui.Form_Main.lblPart.Create(Label,"Part",True,780,390,0,120,1290,True,0,"Arial",12,-2147483633,0)
+Gui.Form_Main.lblPart.Parent("frameOrdLine")
+Gui.Form_Main.lblLoc.Create(Label,"Loc",True,705,390,0,3585,1305,True,0,"Arial",12,-2147483633,0)
+Gui.Form_Main.lblLoc.Parent("frameOrdLine")
+Gui.Form_Main.txtPart.Create(TextBox,"",True,2310,390,0,900,1245,False,0,"Arial",12,-2147483643,1)
+Gui.Form_Main.txtPart.Parent("frameOrdLine")
+Gui.Form_Main.txtPart.MaxLength(20)
+Gui.Form_Main.txtPart.ControlGroup(1)
+Gui.Form_Main.txtPart.DefaultValue(" ")
+Gui.Form_Main.txtLoc.Create(TextBox,"",True,780,390,0,4320,1245,False,0,"Arial",12,-2147483643,1)
+Gui.Form_Main.txtLoc.Parent("frameOrdLine")
+Gui.Form_Main.txtLoc.MaxLength(2)
+Gui.Form_Main.txtLoc.ControlGroup(1)
+Gui.Form_Main.txtLoc.DefaultValue(" ")
+Gui.Form_Main.txtDesc.Create(TextBox,"",True,4740,390,0,300,1935,False,0,"Arial",12,-2147483643,1)
+Gui.Form_Main.txtDesc.Parent("frameOrdLine")
+Gui.Form_Main.txtDesc.MaxLength(30)
+Gui.Form_Main.txtDesc.ControlGroup(1)
+Gui.Form_Main.txtDesc.DefaultValue(" ")
+Gui.Form_Main.lblQtyRem.Create(Label,"Qty Open:",True,1290,345,0,120,2595,True,4,"Arial",10,-2147483633,0)
+Gui.Form_Main.lblQtyRem.Parent("frameOrdLine")
+Gui.Form_Main.lblOrdQty.Create(Label,"0",True,855,345,0,1440,2595,True,4,"Arial",12,-2147483633,0)
+Gui.Form_Main.lblOrdQty.Parent("frameOrdLine")
+Gui.Form_Main.lblOrdQty.ControlGroup(1)
+Gui.Form_Main.lblOrdQty.DefaultValue("0")
+Gui.Form_Main.cmdBrwPack.Create(Button)
+Gui.Form_Main.cmdBrwPack.Size(375,375)
+Gui.Form_Main.cmdBrwPack.Position(4665,630)
+Gui.Form_Main.cmdBrwPack.Caption("^")
+Gui.Form_Main.cmdBrwPack.Parent("frameOrdLine")
+Gui.Form_Main.cmdBrwPack.Event(Click,cmdBrwPack_Click)
+Gui.Form_Main.lblQtyAvailable.Create(Label,"Qty Available:",True,1635,345,0,2325,2595,True,4,"Arial",10,-2147483633,0)
+Gui.Form_Main.lblQtyAvailable.Parent("frameOrdLine")
+Gui.Form_Main.lblAvailQty.Create(Label,"0",True,1200,345,0,3960,2595,True,4,"Arial",12,-2147483633,0)
+Gui.Form_Main.lblAvailQty.Parent("frameOrdLine")
+Gui.Form_Main.lblAvailQty.DefaultValue("0")
+Gui.Form_Main.lblAvailQty.ControlGroup(1)
+Gui.Form_Main.lblShipQty.Create(Label,"Ship Qty",True,1035,255,0,630,3450,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblFrBin.Create(Label,"From Stage BIN",True,1650,255,0,630,3855,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblToBin.Create(Label,"To Shipping Lane",True,1875,255,0,630,4230,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblWeightPP.Create(Label,"Weight (per piece):",True,1935,255,0,615,5910,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblPalletNo.Create(Label,"Pallet No:",True,1095,255,0,615,6330,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.txtShipQty.Create(TextBox,"",True,1215,300,0,2730,3375,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtShipQty.TabStop(True)
+Gui.Form_Main.txtShipQty.TabIndex(4)
+Gui.Form_Main.txtShipQty.ControlGroup(1)
+Gui.Form_Main.txtShipQty.DefaultValue(" ")
+Gui.Form_Main.txtShipQty.Event(LostFocus,txtShipQty_LostFocus)
+Gui.Form_Main.txtFrBin.Create(TextBox,"",True,1215,300,0,2730,3765,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtFrBin.TabStop(True)
+Gui.Form_Main.txtFrBin.TabIndex(5)
+Gui.Form_Main.txtFrBin.ControlGroup(1)
+Gui.Form_Main.txtFrBin.DefaultValue(" ")
+Gui.Form_Main.txtFrBin.Event(LostFocus,txtFrBin_LostFocus)
+Gui.Form_Main.txtToBin.Create(TextBox,"",True,1215,300,0,2730,4155,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtToBin.TabStop(True)
+Gui.Form_Main.txtToBin.TabIndex(6)
+Gui.Form_Main.txtToBin.ControlGroup(1)
+Gui.Form_Main.txtToBin.DefaultValue(" ")
+Gui.Form_Main.txtToBin.Event(LostFocus,txtToBin_LostFocus)
+Gui.Form_Main.lblConCode.Create(Label,"Pallet Code:",True,1695,255,0,615,6750,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblQtyPP.Create(Label,"Qty Per Pallet:",True,1515,255,0,615,7590,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblTotWeight.Create(Label,"Total Weight:",True,1935,255,0,615,7245,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblPalTrack.Create(Label,"Pallet Tracking #",True,1740,255,0,615,7995,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.chkPrint.Create(CheckBox)
+Gui.Form_Main.chkPrint.Size(1755,420)
+Gui.Form_Main.chkPrint.Position(1770,8460)
+Gui.Form_Main.chkPrint.Caption("Print Label ?")
+Gui.Form_Main.chkPrint.Event(Click,chkPrint_Click)
+Gui.Form_Main.chkPrint.TabStop(True)
+Gui.Form_Main.chkPrint.TabIndex(11)
+Gui.Form_Main.chkPrint.DefaultValue("")
+Gui.Form_Main.chkPrint.Value(1)
+Gui.Form_Main.cmdSubmit.Create(Button)
+Gui.Form_Main.cmdSubmit.Size(1155,375)
+Gui.Form_Main.cmdSubmit.Position(180,9120)
+Gui.Form_Main.cmdSubmit.Caption("Save")
+Gui.Form_Main.cmdSubmit.Event(Click,cmdSubmit_Click)
+Gui.Form_Main.cmdSubmit.TabStop(True)
+Gui.Form_Main.cmdSubmit.TabIndex(12)
+Gui.Form_Main.cmdClear.Create(Button)
+Gui.Form_Main.cmdClear.Size(1080,375)
+Gui.Form_Main.cmdClear.Position(4170,9120)
+Gui.Form_Main.cmdClear.Caption("Clear")
+Gui.Form_Main.cmdClear.Event(Click,cmdClear_Click)
+Gui.Form_Main.cmdClear.TabStop(True)
+Gui.Form_Main.cmdClear.TabIndex(14)
+Gui.Form_Main.txtWeight.Create(TextBox,"",True,1215,300,0,2715,5850,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtWeight.ControlGroup(1)
+Gui.Form_Main.txtWeight.DefaultValue(" ")
+Gui.Form_Main.txtWeight.Event(LostFocus,txtWeight_LostFocus)
+Gui.Form_Main.txtPallet.Create(TextBox,"",True,1215,300,0,2715,6270,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtPallet.ControlGroup(1)
+Gui.Form_Main.txtPallet.DefaultValue(" ")
+Gui.Form_Main.txtPallet.Event(LostFocus,txtPallet_LostFocus)
+Gui.Form_Main.txtQtyPP.Create(TextBox,"",True,1215,300,0,2715,7530,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtQtyPP.TabStop(True)
+Gui.Form_Main.txtQtyPP.TabIndex(9)
+Gui.Form_Main.txtQtyPP.ControlGroup(1)
+Gui.Form_Main.txtQtyPP.DefaultValue(" ")
+Gui.Form_Main.txtQtyPP.Event(LostFocus,txtQtyPP_LostFocus)
+Gui.Form_Main.txtTotWeight.Create(TextBox,"",True,1215,300,0,2715,7140,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtTotWeight.ControlGroup(1)
+Gui.Form_Main.txtTotWeight.DefaultValue("  ")
+Gui.Form_Main.txtPalTrack.Create(TextBox,"",True,1215,300,0,2715,7935,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtPalTrack.TabStop(True)
+Gui.Form_Main.txtPalTrack.TabIndex(10)
+Gui.Form_Main.txtPalTrack.ControlGroup(1)
+Gui.Form_Main.txtPalTrack.DefaultValue(" ")
+Gui.Form_Main.ddlCarton.Create(DropDownList)
+Gui.Form_Main.ddlCarton.Size(1200,330)
+Gui.Form_Main.ddlCarton.Position(2715,6690)
+Gui.Form_Main.ddlCarton.TabStop(True)
+Gui.Form_Main.ddlCarton.TabIndex(9)
+Gui.Form_Main.ddlCarton.DefaultValue(" ")
+Gui.Form_Main.ddlCarton.ControlGroup(1)
+Gui.Form_Main.lblEachPallet.Create(Label,"lbs",True,1275,255,0,4065,7245,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblEachPallet.DefaultValue("lbs")
+Gui.Form_Main.lblEachPallet.ControlGroup(1)
+Gui.Form_Main.lblNumPallets.Create(Label,"#",True,1275,255,0,4050,7620,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblNumPallets.DefaultValue("#")
+Gui.Form_Main.lblNumPallets.ControlGroup(1)
+Gui.Form_Main.cmdAdd.Create(Button)
+Gui.Form_Main.cmdAdd.Size(1770,375)
+Gui.Form_Main.cmdAdd.Position(1815,9120)
+Gui.Form_Main.cmdAdd.Caption("Save and Add")
+Gui.Form_Main.cmdAdd.Event(Click,cmdAdd_Click)
+Gui.Form_Main.cmdAdd.TabStop(True)
+Gui.Form_Main.cmdAdd.TabIndex(13)
+Gui.Form_Main.lblDone.Create(Label,"Transaction Successful",False,3855,255,0,1095,9660,True,2,"Arial",8,-2147483633,0)
+Gui.Form_Main.txtLot.Create(TextBox,"",True,1215,300,0,2730,4575,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtLot.Event(LostFocus,txtLot_LostFocus)
+Gui.Form_Main.txtLot.TabStop(True)
+Gui.Form_Main.txtLot.TabIndex(7)
+Gui.Form_Main.txtLot.ControlGroup(1)
+Gui.Form_Main.txtSerial.Create(TextBox,"",True,1215,300,0,2730,5025,True,0,"Arial",8,-2147483643,1)
+Gui.Form_Main.txtSerial.Event(LostFocus,txtSerial_LostFocus)
+Gui.Form_Main.txtSerial.TabStop(True)
+Gui.Form_Main.txtSerial.TabIndex(8)
+Gui.Form_Main.txtSerial.ControlGroup(1)
+Gui.Form_Main.lblLot.Create(Label,"Lot",True,1530,255,0,660,4695,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.lblSerial.Create(Label,"Serial Number",True,1935,255,0,690,5070,True,0,"Arial",8,-2147483633,0)
+Gui.Form_Main.cmdBrwFrBin.Create(Button)
+Gui.Form_Main.cmdBrwFrBin.Size(375,375)
+Gui.Form_Main.cmdBrwFrBin.Position(3990,3720)
+Gui.Form_Main.cmdBrwFrBin.Caption("^")
+Gui.Form_Main.cmdBrwFrBin.Event(Click,cmdBrwFrBin_Click)
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+v.Global..BulkDeclareString(sOrder,sLine,sPack,sPart,sLoc,sFrBin,sToBin,sCust,sPallet,sStaged,sOldBin,sUser,sPrinter,sTransID,sLot,sHeat,sSerial,sOSuffix,sWPP)
+v.Global..BulkDeclareBoolean(bExists,bPrint,bNew)
+v.Global..BulkDeclareLong(iPack,iPltWeight,iPallets,iOrdQty,iAvailable,iShipQty,iStaged,iRemainQty,iTotWeight)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+f.Intrinsic.Debug.EnableLogging
+'connection
+f.ODBC.Connection!con.openconnection(v.Ambient.PDSN,v.Ambient.PUser,v.Ambient.PPass)
+
+'get carton codes from options for form
+f.Intrinsic.Control.CallSub(get_cartons)
+gui.Form_Main.cmdBrwOrd.SetFocus
+'form
+gui.Form_Main..Show
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.Main.End
+
+Program.Sub.Form_Main_UnLoad.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+f.ODBC.Connection!con.Close
+f.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Form_Main_UnLoad.End
+
+Program.Sub.cmdBrwOrd_Click.Start
+'done
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.local.sTitles.Declare(String)
+v.Local.iWidths.Declare(Long)
+v.Local.sRet.Declare(String)
+
+'OH.ORDER_TYPE <> 'B'
+'create browser query
+f.Intrinsic.Control.If(v.Global.sPack,"=","")
+	v.Local.sSql.Set("select OH.ORDER_NO, OH.CUSTOMER_PO, OH.CUSTOMER, CM.NAME_CUSTOMER AS NAME, OH.DATE_DUE FROM V_ORDER_HEADER OH LEFT JOIN V_CUSTOMER_MASTER CM ON OH.CUSTOMER = CM.CUSTOMER WHERE OH.ORDER_TYPE <> 'B'")
+f.Intrinsic.Control.Else
+	f.Intrinsic.String.Build("select OH.ORDER_NO, OH.CUSTOMER_PO, OH.CUSTOMER, CM.NAME_CUSTOMER AS NAME, OH.DATE_DUE FROM V_ORDER_HEADER OH LEFT JOIN V_CUSTOMER_MASTER CM ON OH.CUSTOMER = CM.CUSTOMER WHERE OH.ORDER_TYPE <> 'B' AND OH.CUSTOMER = '{0}'",v.Global.sCust,v.Local.sSql)
+f.Intrinsic.Control.EndIf
+F.Intrinsic.String.Split("ORDER_NO*!*PO*!*CUSTOMER*!*NAME*!*DATE_DUE","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("300*!*300*!*300*!*600*!*200","*!*",V.Local.iWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+f.Intrinsic.UI.Browser("Select Sales Order","CON",V.Local.sSql,V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+
+'handle return
+F.Intrinsic.Control.If(V.Local.sRet,"=","***CANCEL***")
+	F.Intrinsic.UI.Msgbox("No Order Selected")
+f.Intrinsic.Control.else
+	f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.local.sRet)
+	gui.Form_Main.txtOrder.Text(v.Local.sRet(0))
+	v.Global.sOrder.Set(v.Local.sRet(0))
+	V.Global.sCust.Set(v.Local.sRet(2))
+	F.Intrinsic.Control.If(V.Screen.Form_Main!txtPackList.Text,"<","  ")
+		f.Intrinsic.Control.CallSub(check_shipment)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+	
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdBrwOrd_Click.End
+
+Program.Sub.cmdBrwLine_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.local.sTitles.Declare(String)
+v.Local.iWidths.Declare(Long)
+v.Local.sRet.Declare(String)
+
+'make sure we have an order first
+f.Intrinsic.Control.If(v.Global.sOrder,"=","")
+	f.Intrinsic.UI.Msgbox("No Sales Order Selected, can not select line","Line Error")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+'create browser	- display line items from selected order with quantity yet to be staged (BO - QTY_SHIPPED)
+F.Intrinsic.String.Build("select DISTINCT left(OL.RECORD_NO,3) AS LINE, OL.PART, OL.LOCATION AS LOC, OL.DESCRIPTION, IF (OL.STAGED <> '1' , OL.QTY_BO , OL.QTY_BO - SL.QTY_SHIPPED) AS OPEN_QTY, OL.BLANKET_NO AS BLANKET_ORDER FROM V_ORDER_LINES OL LEFT JOIN V_SHIPMENT_LINES SL ON OL.ORDER_NO = SL.ORDER_NO AND OL.RECORD_NO = SL.ORDER_REC LEFT JOIN V_INVENTORY_MSTR IM ON IM.PART = OL.PART AND IM.LOCATION = OL.LOCATION WHERE OL.ORDER_NO = '{0}' AND OPEN_QTY > 0 AND IM.FLAG_LOT = 'Y'",V.Global.sOrder,v.Local.sSql)
+F.Intrinsic.String.Split("LINE*!*PART*!*LOC*!*DESCR*!*QUANTITY*!*BLANKET","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("200*!*300*!*100*!*500*!*200*!*300","*!*",V.Local.iWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+f.Intrinsic.UI.Browser("Select Line Item","CON",V.Local.sSql,V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+'handle return  - updating global vars and form quantities
+F.Intrinsic.Control.If(V.Local.sRet,"=","***CANCEL***")
+	F.Intrinsic.UI.Msgbox("No Line Selected")
+f.Intrinsic.Control.else
+	f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.local.sRet)
+	gui.Form_Main.txtLine.Text(v.Local.sRet(0))
+	gui.Form_Main.txtPart.Text(v.Local.sRet(1))
+	GUI.Form_Main.txtLoc.Text(V.Local.sRet(2))
+	gui.Form_Main.txtDesc.Text(v.Local.sRet(3))
+	v.Global.sLine.Set(v.Local.sRet(0))
+	v.Global.sPart.Set(v.Local.sRet(1))
+	v.Global.sLoc.Set(v.Local.sRet(2))
+	v.Global.iOrdQty.Set(v.Local.sRet(4))
+	gui.Form_Main.lblOrdQty.Caption(v.Global.iOrdQty)
+	f.Intrinsic.Control.CallSub(get_available)
+	f.Intrinsic.Control.CallSub(check_carton)
+	f.Intrinsic.Control.CallSub(weight_packing)
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdBrwLine_Click.End
+
+Program.Sub.cmdSubmit_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sRet.Declare(String)
+'this sub will post the transaction and clear the form to start the next order
+
+f.Intrinsic.Control.CallSub(getUser_Printer)
+
+F.Intrinsic.Control.If(V.Screen.Form_Main!txtQtyPP.Text,">","")
+	v.Global.iPack.Set(v.Screen.Form_Main!txtQtyPP.text)
+f.Intrinsic.Control.Else
+	v.Global.iPack.Set(v.Global.iShipQty)
+f.Intrinsic.Control.EndIf
+
+V.Global.sFrBin.Set(v.Screen.Form_Main!txtFrBin.Text)
+v.Global.sToBin.Set(V.Screen.Form_Main!txtToBin.Text)
+v.Global.sLot.Set(V.Screen.Form_Main!txtLot.Text)
+v.Global.sSerial.Set(v.Screen.Form_Main!txtSerial.Text)
+F.Intrinsic.Control.If(V.Global.iPallets,"<",1)
+	v.Global.iPallets.Set(1)
+f.Intrinsic.Control.EndIf
+'Function.Intrinsic.Debug.InvokeDebugger
+
+'Function.Intrinsic.Debug.Stop
+
+f.ODBC.Connection!cony.openconnection(v.Ambient.Ccon,v.Ambient.Cuser,v.Ambient.Cpass)
+f.Intrinsic.String.Build("select GS.USERID, MP.UPID FROM MOBILE_USER_INFO GS LEFT JOIN MOBILE_USER_PRINTER MP ON GS.UID = MP.UID LEFT JOIN SERVER_PRINTERS SP ON MP.NAME = SP.PRINTERNAME WHERE GS.GSUSERNAME ='{0}'",V.Caller.User,V.Local.sSql)
+f.ODBC.Connection!cony.executeandreturn(v.Local.sSql,v.Local.sRet)
+f.Intrinsic.Control.If(v.Local.sRet,">","")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	v.Global.sUser.Set(v.Local.sRet(0))
+	F.Intrinsic.String.Build("UPID:{0}",V.Local.sRet(1),V.Global.sPrinter)
+f.Intrinsic.Control.Else
+	v.Global.sUser.Set("ADMIN")
+F.Intrinsic.Control.EndIf
+f.Intrinsic.Debug.SetLA("user ID and Printer retrieved")
+F.ODBC.Connection!cony.Close
+
+
+f.Intrinsic.Debug.SetLA("Stepping in to transactions")
+f.Intrinsic.Control.CallSub(validate)
+f.Intrinsic.Control.CallSub(bin2bin)
+f.Intrinsic.Control.CallSub(stage)
+
+f.Intrinsic.Control.CallSub(cmdClear_Click)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdSubmit_Click.End
+
+Program.Sub.chkPrint_Click.Start
+v.Global.bPrint.Set(v.Screen.Form_Main!chkPrint.checkedAsBoolean)
+
+'f.Intrinsic.Control.If(v.Global.bPrint,=,False)
+'	v.Global.bPrint.Set(True)
+'f.Intrinsic.Control.Else
+'	v.Global.bPrint.Set(False)
+'f.Intrinsic.Control.EndIf
+Program.Sub.chkPrint_Click.End
+
+Program.Sub.txtOrder_KeyPress.Start
+v.Global.sOrder.Set(v.Screen.Form_Main!txtOrder.text)
+
+Program.Sub.txtOrder_KeyPress.End
+
+Program.Sub.check_carton.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+f.Intrinsic.Control.BlockEvents
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sRet.Declare(String)
+v.Local.fRet.Declare(Float)
+
+'query the packlist and see if we get a carton returned
+f.Intrinsic.String.Build("select top 1(PLLT_NO) from V_BOL_PACK_DTL WHERE PCK_NO = '{0}' ORDER BY PLLT_NO DESC",V.Global.sPack,v.Local.sSql)
+f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+f.Intrinsic.Control.If(v.Local.sRet,"=","")
+	gui.Form_Main.txtPallet.Text("00000001")
+	v.Global.sPallet.Set("00000001")
+f.Intrinsic.Control.Else
+	f.Intrinsic.Math.Add(v.Local.sRet,1,v.Local.fRet)
+	f.Intrinsic.String.LPad(v.Local.fRet,"0",8,v.Local.sRet)
+	gui.Form_Main.txtPallet.Text(v.Local.sRet)
+	v.Global.sPallet.Set(v.Local.sRet)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.If(gui.Form_Main.lblDone.visible,"=",True)
+	gui.Form_Main.lblDone.Visible(False)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.check_carton.End
+
+Program.Sub.txtShipQty_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+f.Intrinsic.Control.BlockEvents
+
+V.Local.sError.Declare(String)
+v.Local.fOrder.Declare(Float)
+v.Local.fQty.Declare(Float)
+v.Local.fWeight.Declare(Float)
+v.Local.sSql.Declare(String)
+v.Local.sRet.Declare(String)
+v.Local.iOrdQty.Declare(Long)
+v.Local.iAvailable.Declare(Long)
+
+v.Local.fQty.Set(v.Screen.Form_Main!txtShipQty.Text)
+
+f.Intrinsic.Debug.SetLA("Set ship quantity",v.Local.fQty," and update form values")
+v.Global.iShipQty.Set(v.Local.fQty)
+f.Intrinsic.Control.If(v.Global.iShipQty,"<=",v.Global.iAvailable)
+	f.Intrinsic.Math.Sub(v.Global.iOrdQty,v.Global.iShipQty,v.Local.iOrdQty)
+	gui.Form_Main.lblOrdQty.Caption(v.Local.iOrdQty)
+	F.Intrinsic.Math.Sub(v.Global.iAvailable,v.Global.iShipQty,v.Local.iAvailable)
+	gui.Form_Main.lblAvailQty.Caption(v.Local.iAvailable)
+	f.Intrinsic.Math.Mult(v.Screen.Form_Main!txtWeight.Text,v.Global.iShipQty,v.Local.fWeight)
+	gui.Form_Main.txtTotWeight.Text(v.Local.fWeight)
+	V.Global.iTotWeight.Set(v.Local.fWeight)
+'checking if the product is in a single bin.  If so, setting the value so it doesn't have to be scanned
+	f.Intrinsic.String.build("select BIN from v_item_master where part = '{0}' and location = '{1}' and quantity > '0'",v.Global.sPart,v.Global.sLoc,v.Local.sSql)
+	f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+	f.Intrinsic.String.Split(v.local.sRet,"#$#",v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet.UBound,"=",0)
+		gui.Form_Main.txtFrBin.Text(v.Local.sRet)
+		gui.Form_Main.txtToBin.SetFocus
+	f.Intrinsic.Control.Else
+		gui.Form_Main.txtFrBin.SetFocus
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.Else
+	f.Intrinsic.UI.Msgbox("Quantity Entered is greater than Quantity Available, Try Again","Qty Error")
+f.Intrinsic.Control.EndIf
+f.Intrinsic.Debug.SetLA("calculated bin quantity, if qty exists in single bin, assign bin to form")
+
+f.Intrinsic.Control.UnBlockEvents
+
+f.Intrinsic.Control.CallSub(txtQtyPP_LostFocus)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtShipQty_LostFocus.End
+
+Program.Sub.check_shipment.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sRet.Declare(String)
+v.Local.iRet.Declare(Long)
+'check to see if there is an existing staged shipment for this order
+'if yes, select that shipment, if no, get a new shipment id.
+
+'check existing
+f.Intrinsic.String.Build("select pck_no from v_staging_orders where order_no = '{0}'",v.Global.sOrder,v.Local.sSql)
+f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+f.Intrinsic.Control.If(v.Local.sRet,>,"")
+	gui.Form_Main.txtPackList.Text(v.Local.sRet)
+	v.Global.sPack.Set(v.Local.sRet)
+	v.Global.bNew.Set(False)
+	f.Intrinsic.Debug.SetLA("existing packlist for this order, returning to form")
+	
+f.Intrinsic.Control.Else
+	f.Global.General.ReadOption("401060",3,1,v.Local.iRet)
+	f.Intrinsic.String.LPad(v.Local.iRet,"0",7,v.Local.sRet)
+	gui.Form_Main.txtPackList.Text(v.Local.sRet)
+	v.Global.sPack.Set(v.Local.sRet)
+	v.Global.bNew.Set(True)
+	'update the company option
+	f.Intrinsic.Math.Add(v.Local.iRet,1,v.local.iRet)
+	Function.Global.General.SaveOption("401060","0000","", "", "", "", "", "",v.Local.iRet)
+	f.Intrinsic.Debug.SetLA("retrieved next packing list and updated company option",v.Ambient.LastAction)
+f.Intrinsic.Control.Endif
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.check_shipment.End
+
+Program.Sub.cmdAdd_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sRet.Declare(String)
+'this sub will post the transaction and clear the form to start the next order
+
+F.Intrinsic.Control.If(V.Screen.Form_Main!txtQtyPP.Text,">","")
+	v.Global.iPack.Set(v.Screen.Form_Main!txtQtyPP.text)
+f.Intrinsic.Control.Else
+	v.Global.iPack.Set(v.Global.iShipQty)
+f.Intrinsic.Control.EndIf
+
+V.Global.sFrBin.Set(v.Screen.Form_Main!txtFrBin.Text)
+v.Global.sToBin.Set(V.Screen.Form_Main!txtToBin.Text)
+F.Intrinsic.Control.If(V.Global.iPallets,"<",1)
+	v.Global.iPallets.Set(1)
+f.Intrinsic.Control.EndIf
+'Function.Intrinsic.Debug.InvokeDebugger
+
+'Function.Intrinsic.Debug.Stop
+
+f.ODBC.Connection!cony.openconnection(v.Ambient.Ccon,v.Ambient.Cuser,v.Ambient.Cpass)
+f.Intrinsic.String.Build("select GS.USERID, SP.SENTINELALIAS FROM MOBILE_USER_INFO GS LEFT JOIN MOBILE_USER_PRINTER MP ON GS.UID = MP.UID AND MP.UPID = '1' LEFT JOIN SERVER_PRINTERS SP ON MP.NAME = SP.PRINTERNAME WHERE GS.GSUSERNAME ='{0}'",V.Caller.User,V.Local.sSql)
+f.ODBC.Connection!cony.executeandreturn(v.Local.sSql,v.Local.sRet)
+f.Intrinsic.Control.If(v.Local.sRet,">","")
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	v.Global.sUser.Set(v.Local.sRet(0))
+	V.Global.sPrinter.Set("UPID:1")
+f.Intrinsic.Control.Else
+	v.Global.sUser.Set("ADMIN")
+F.Intrinsic.Control.EndIf
+f.Intrinsic.Debug.SetLA("user ID and Printer retrieved")
+F.ODBC.Connection!cony.Close
+
+f.Intrinsic.Control.CallSub(validate)
+f.Intrinsic.Control.CallSub(bin2bin)
+f.Intrinsic.Control.CallSub(stage)
+
+f.Intrinsic.Control.BlockEvents
+
+gui.Form_Main..ClearGroup(1)
+gui.Form_Main.txtOrder.Text(v.Global.sOrder)
+gui.Form_Main.txtPackList.Text(v.Global.sPack)
+v.global.sOrder.set("")
+v.global.sLine.set("")
+v.global.sPack.set("")
+v.global.sPart.set("")
+v.global.sLoc.set("")
+v.global.sFrBin.set("")
+v.global.sToBin.set("")
+v.global.sCust.set("")
+v.global.sPallet.set("")
+v.global.sStaged.set("")
+v.global.sOldBin.set("")
+v.global.sUser.set("")
+v.global.sPrinter.set("")
+v.global.sTransID.set("")
+v.Global.sLot.Set("")
+v.Global.sSerial.Set("")
+v.Global.sOSuffix.Set("")
+v.global.bExists.set(False)
+v.global.bPrint.set(False)
+v.Global.bNew.Set(False)
+v.global.iPack.set(0)
+v.global.iPltWeight.set(0)
+v.global.iPallets.set(0)
+v.global.iOrdQty.set(0)
+v.global.iAvailable.set(0)
+v.global.iShipQty.set(0)
+v.global.iStaged.set(0)
+v.global.iRemainQty.set(0)
+v.Global.iTotWeight.Set(0)
+gui.Form_Main.cmdBrwOrd.DisableOnClick(10)
+gui.Form_Main.cmdBrwOrd.Visible(True)
+gui.Form_Main.txtOrder.Locked(False)
+
+f.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdAdd_Click.End
+
+Program.Sub.cmdBrwPack_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.local.sTitles.Declare(String)
+v.Local.iWidths.Declare(Long)
+v.Local.iOpt.Declare(Long)
+v.Local.sRet.Declare(String)
+
+'create browser
+v.Local.sSql.Set("select PK.PCK_NO, PK.ORDER_NO, PK.CUST, CM.NAME_CUSTOMER AS NAME, PK.SHP_DATE FROM V_STAGING_BROWSER PK LEFT JOIN V_CUSTOMER_MASTER CM ON PK.CUST = CM.CUSTOMER")
+F.Intrinsic.String.Split("PACK LIST*!*ORDER_NO*!*CUST_NO*!*NAME*!*DATE_DUE","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("300*!*300*!*300*!*600*!*200","*!*",V.Local.iWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+f.Intrinsic.UI.Browser("Select Pack List","CON",V.Local.sSql,V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+
+'handle return
+F.Intrinsic.Control.If(V.Local.sRet,"=","***CANCEL***")
+	F.Intrinsic.UI.Msgbox("No Pack List Selected")
+f.Intrinsic.Control.else
+	f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.local.sRet)
+	gui.Form_Main.txtPackList.Text(v.Local.sRet(0))
+	gui.Form_Main.txtOrder.Text(v.Local.sRet(1))
+	v.Global.sPack.Set(v.Local.sRet(0))
+	v.Global.sOrder.Set(v.Local.sRet(1))
+	V.Global.sCust.Set(v.Local.sRet(2))
+f.Intrinsic.Control.EndIf
+
+f.Global.General.ReadOption("401552",0,0,"0000",v.Local.iOpt)
+f.Intrinsic.Control.If(v.Local.iOpt,"=",0)
+	gui.Form_Main.cmdBrwOrd.DisableOnClick(11)
+	gui.Form_Main.cmdBrwOrd.Visible(False)
+	gui.Form_Main.txtOrder.Locked(True)
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdBrwPack_Click.End
+
+Program.Sub.cmdClear_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+f.Intrinsic.Control.BlockEvents
+
+V.Local.sError.Declare(String)
+
+gui.Form_Main..ClearGroup(1)
+v.global.sOrder.set("")
+v.global.sLine.set("")
+v.global.sPack.set("")
+v.global.sPart.set("")
+v.global.sLoc.set("")
+v.global.sFrBin.set("")
+v.global.sToBin.set("")
+v.global.sCust.set("")
+v.global.sPallet.set("")
+v.global.sStaged.set("")
+v.global.sOldBin.set("")
+v.global.sUser.set("")
+v.global.sPrinter.set("")
+v.global.sTransID.set("")
+v.Global.sLot.Set("")
+v.Global.sSerial.Set("")
+v.Global.sOSuffix.Set("")
+v.global.bExists.set(False)
+v.global.bPrint.set(False)
+v.Global.bNew.Set(False)
+v.global.iPack.set(0)
+v.global.iPltWeight.set(0)
+v.global.iPallets.set(0)
+v.global.iOrdQty.set(0)
+v.global.iAvailable.set(0)
+v.global.iShipQty.set(0)
+v.global.iStaged.set(0)
+v.global.iRemainQty.set(0)
+v.Global.iTotWeight.Set(0)
+gui.Form_Main.cmdBrwOrd.DisableOnClick(10)
+gui.Form_Main.cmdBrwOrd.Visible(True)
+gui.Form_Main.txtOrder.Locked(False)
+
+f.Intrinsic.control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdClear_Click.End
+
+Program.Sub.get_available.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sRet.Declare(String)
+
+f.Intrinsic.String.Build("select SUM(IT.QUANTITY) AS QUANTITY, I2.LBS FROM V_ITEM_MASTER IT LEFT JOIN V_INVENTORY_MST2 I2 ON IT.PART = I2. PART AND IT.LOCATION = I2.LOCATION WHERE IT.PART = '{0}' AND IT.LOCATION = '{1}' AND IT.ALLOCATED <> 'Y' GROUP BY I2.LBS",V.Global.sPart,v.Global.sLoc,v.Local.sSql)
+f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+f.Intrinsic.Control.If(v.Local.sRet,>,"")
+	f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.sRet)
+	gui.Form_Main.txtWeight.Text(v.Local.sRet(1))
+	gui.Form_Main.lblAvailQty.Caption(v.Local.sRet(0))
+	v.Global.iAvailable.Set(v.Local.sRet(0))
+f.Intrinsic.Control.Else
+	f.Intrinsic.UI.Msgbox("The part is not matching up to the location","Part Loc Error")
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.get_available.End
+
+Program.Sub.get_cartons.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+
+V.Local.sSql.Set("select CNTNR_DESC as CONTAINER, CNTNR_CODE as CODE, WEIGHT from V_BOL_CONTAINERS WHERE PALLET_FLAG = 'Y'")
+f.Data.DataTable.CreateFromSQL("CARTON","CON",V.Local.sSql,True)
+f.Data.Dictionary.CreateFromDataTable("WEIGHT","CARTON","CODE","WEIGHT",4)
+
+GUI.Form_Main.ddlCarton.AddItems("DataTable","CARTON","CONTAINER","CODE")
+F.Intrinsic.Debug.SetLA("Container codes retrieved")
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.get_cartons.End
+
+Program.Sub.txtOrder_LostFocus.Start
+f.Intrinsic.Control.BlockEvents
+
+v.Global.sOrder.Set(v.Screen.Form_Main!txtOrder.text)
+f.Intrinsic.Control.If(v.Global.sOrder.Trim,">","")
+	f.Intrinsic.String.Trim(v.Global.sOrder,v.Global.sOrder)
+	f.Intrinsic.String.LPad(v.Global.sOrder,"0",7,v.Global.sOrder)
+	gui.Form_Main.txtOrder.Text(v.Global.sOrder)
+	f.Intrinsic.Control.CallSub(check_shipment)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.UnBlockEvents
+f.Intrinsic.Control.ExitSub
+Program.Sub.txtOrder_LostFocus.End
+
+Program.Sub.txtFrBin_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+f.Intrinsic.Control.BlockEvents
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sRet.Declare(String)
+V.Local.iRet.Declare(Long)
+V.Local.sBin.Declare(String)
+
+
+v.Global.sFrBin.Set(v.Screen.Form_Main!txtFrBin.Text)
+f.Intrinsic.Control.If(v.Global.sFrBin.Trim,">","")
+	F.Intrinsic.String.UCase(v.Global.sFrBin,v.Global.sFrBin)
+	gui.Form_Main.txtFrBin.Text(v.Global.sFrBin)
+	f.Intrinsic.String.Trim(v.Global.sFrBin,v.Global.sFrBin)
+	f.Intrinsic.String.Build("select BIN from v_bin_master where bin = '{0}'",v.Global.sFrBin,v.Local.sSql)
+	f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,"=","")
+		f.Intrinsic.UI.Msgbox("The BIN you entered is not valid","From BIN Error")
+		gui.Form_Main.txtFrBin.SetFocus
+	f.Intrinsic.Control.EndIf
+	
+	f.Intrinsic.String.Build("select SUM(quantity) from v_item_master where part = '{0}' and location = '{1}' and BIN = '{2}' and quantity > '0' and allocated <> 'Y' ",v.Global.sPart,v.Global.sLoc,v.Global.sFrBin,v.Local.sSql)
+	f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.iRet)
+	f.Intrinsic.Control.If(v.Local.iRet,<,v.Global.iShipQty)
+		f.Intrinsic.String.build("Quantity {0} in BIN {1} is less than Quantity Shipped {2}, adjust shipped quantity or BIN!",v.Local.iRet,v.Global.sFrBin,v.Global.iShipQty,v.Local.sRet)
+		f.Intrinsic.UI.Msgbox(v.Local.sRet,"BIN Quantity Error")
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtFrBin_LostFocus.End
+
+Program.Sub.txtToBin_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+f.Intrinsic.Control.BlockEvents
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sRet.Declare(String)
+
+v.Global.sToBin.Set(v.Screen.Form_Main!txtToBin.Text)
+F.Intrinsic.String.UCase(v.Global.sToBin,v.Global.sToBin)
+gui.Form_Main.txtToBin.Text(v.Global.sToBin)
+f.Intrinsic.String.Build("select BIN from v_bin_master where bin = '{0}'",v.Global.sToBin,v.Local.sSql)
+f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+f.Intrinsic.Control.If(v.Local.sRet,"=","")
+	f.Intrinsic.UI.Msgbox("The BIN you entered is not valid","To BIN Error")
+	gui.Form_Main.txtToBin.SetFocus
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtToBin_LostFocus.End
+
+Program.Sub.txtQtyPP_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+f.Intrinsic.Control.BlockEvents
+
+V.Local.sError.Declare(String)
+v.Local.iQuantity.Declare(Long)
+v.Local.iQPP.Declare(Long)
+v.Local.iWeight.Declare(Long)
+V.Local.iPltWeight.Declare(Long)
+v.Local.fPallets.Declare(Float)
+v.Local.sPallets.Declare(String)
+v.Local.bExists.Declare(Boolean)
+
+
+
+v.Local.iQPP.Set(v.Screen.Form_Main!txtQtyPP.text)
+v.Local.iWeight.Set(v.Screen.Form_Main!txtWeight.text)
+f.Intrinsic.control.If(v.Local.iQPP,">",0)
+	v.Local.iQuantity.Set(v.Screen.Form_Main!txtShipQty.text)
+	f.Intrinsic.Control.If(v.Local.iQPP,">",0,"AND",V.Local.iQuantity,">",0)
+		f.Intrinsic.math.Div(V.Local.iQuantity,V.Local.iQPP,V.Local.sPallets)
+		F.Intrinsic.String.Split(V.Local.sPallets,".",V.Local.sPallets)
+		f.Intrinsic.Control.If(v.Local.sPallets.UBound,"<>",0)
+			f.Intrinsic.Math.Add(v.Local.sPallets(0),1,v.Local.sPallets)
+		f.Intrinsic.Control.EndIf
+		V.Global.iPallets.Set(v.Local.sPallets)
+		f.Intrinsic.String.Build("{0} Pallets",v.Local.sPallets,v.Local.sPallets)
+		gui.Form_Main.lblNumPallets.Caption(v.Local.sPallets)
+	f.Intrinsic.Control.EndIf
+	f.Intrinsic.Debug.SetLA("number of pallets updated")
+	f.Intrinsic.Math.Mult(v.Local.iQPP,v.Local.iWeight,v.Local.iQPP)
+	v.Global.iTotWeight.Set(v.Screen.Form_Main!txtTotWeight.Text)
+	f.Intrinsic.Control.If(v.Global.iPallets,">",1)
+		f.Intrinsic.Math.Div(v.Global.iTotWeight,v.Global.iPallets,v.Global.iTotWeight)
+	f.Intrinsic.Control.EndIf
+	v.Local.sPallets.Set(v.Screen.Form_Main!ddlCarton.text)
+	F.Intrinsic.String.Build("CODE = '{0}'",V.Local.sPallets,V.Local.sPallets)
+	f.Data.DataTable.Select("CARTON",V.Local.sPallets,V.Local.sPallets)
+	v.Global.iPltWeight.Set(V.DataTable.CARTON(V.Local.sPallets.Long).WEIGHT!FIELDVALFLOAT)
+	F.Intrinsic.Math.Add(V.Local.iQPP,V.Global.iPltWeight,v.Global.iTotWeight)
+	gui.Form_Main.txtTotWeight.Text(v.Global.iTotWeight)
+	f.Intrinsic.Debug.SetLA("individual pallet weight calculated")
+f.Intrinsic.Control.EndIf
+
+
+f.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtQtyPP_LostFocus.End
+
+Program.Sub.validate.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sRet.Declare(String)
+
+
+'get next transaction ID for wireless tables
+v.Local.sSql.Set("Select TOP 1 TRANS_ID from WIRELESS_HDR ORDER BY TRANS_ID DESC")
+	Function.ODBC.Connection!con.OpenRecordsetRO("wirLine",V.Local.sSql)
+	F.Intrinsic.Control.If(V.ODBC.con!wirLine.EOF,=,False)
+	V.Global.sTransID.Set(V.ODBC.con!wirLine.FieldVALTRIM!TRANS_ID)
+	F.Intrinsic.Math.Add(V.Global.sTransID,1,V.Global.sTransID)
+	F.Intrinsic.String.LPad(V.Global.sTransID,"0",9,V.Global.sTransID)
+	F.ODBC.con!wirLine.Close
+	F.Intrinsic.Control.EndIf
+f.Intrinsic.Debug.SetLA("transaction id retrieved for current transaction")
+
+'check the carton number to determine if we have to unstage the existing record before staging the new total quantity
+f.Intrinsic.String.Build("select PLLT_NO, QTY, BIN FROM V_BOL_PACK_DTL where PCK_NO = '{0}' AND ORDER_NO = '{1}' AND PART = '{2}' AND LOCN = '{3}' AND PLLT_NO = '{4}'",V.Global.sPack.Trim,V.Global.sOrder.Trim,V.Global.sPart.Trim,V.Global.sLoc.Trim,V.Global.sPallet.Trim,V.Local.ssql)
+F.ODBC.Connection!con.ExecuteAndReturn(V.Local.ssql,V.Local.sRet)
+F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+F.Intrinsic.Control.If(V.Global.sPallet,=,V.Local.sRet(0))
+	f.Intrinsic.debug.SetLA("Previously staged carton/part combination, unstaging")
+	v.Global.sStaged.Set(V.Local.sRet(1))
+	V.Global.sOldBin.Set(v.Local.sRet(2))
+	F.Intrinsic.Control.CallSub(remove_stage)
+f.Intrinsic.Control.EndIf
+
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.validate.End
+
+Program.Sub.stage.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sUserID.Declare(String)
+v.Local.sWeight.Declare(String)
+V.Local.sQty.Declare(String)
+v.Local.fQPP.Declare(Float)
+v.Local.fQRem.Declare(Float)
+v.Local.iCount.Declare(Long)
+V.Local.sCarton.Declare(String)
+V.Local.sPartWeight.Declare(String)
+V.Local.sSQL.Declare(String)
+
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+v.Global.bPrint.Set(v.Screen.Form_Main!chkPrint.CheckedAsBoolean)
+f.Intrinsic.Control.If(v.Global.iStaged,">",0)
+	f.Intrinsic.Math.Add(v.Global.iShipQty,v.Global.iStaged,v.Global.iShipQty)
+f.Intrinsic.Control.EndIf
+v.Local.fQRem.Set(v.Global.iShipQty)
+f.Intrinsic.Control.If(v.Global.iPack,">",0)
+	v.Local.fQPP.Set(v.Global.iPack)
+f.Intrinsic.Control.else
+	v.Local.fQPP.Set(V.Global.iShipQty)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.For(v.Local.iCount,1,v.Global.iPallets,1)
+f.Intrinsic.Debug.SetLA("Staging line item",v.Local.iCount,"of",v.Global.ipallets)
+	f.Intrinsic.Control.If(v.Local.fQRem,">",v.Local.fQpp)
+		F.Intrinsic.Math.Sub(V.Local.fQRem,v.Local.fQPP,v.Local.fQRem)
+		v.Global.iShipQty.Set(v.Local.fQPP)
+	f.Intrinsic.Control.Else
+		v.Global.iShipQty.Set(v.Local.fQRem)
+	f.Intrinsic.Control.EndIf
+		
+	v.Local.sCarton.Set(V.Screen.Form_Main!ddlCarton.Text)
+	v.Local.sPartWeight.Set(V.Screen.Form_Main!txtWeight.Text)
+	f.Intrinsic.String.ConvertToString(v.Global.iShipQty,v.Local.sQty)
+	f.Intrinsic.String.Format(v.Local.sQty,"####.0000",v.Local.sQty)
+	f.Intrinsic.Math.Mult(v.Local.sQty,v.Screen.Form_Main!txtWeight.text,v.Local.sWeight)
+	f.Intrinsic.Math.Add(v.Local.sWeight,v.Global.iPLtWeight,v.Local.sWeight)
+	
+	f.ODBC.Connection!con.OpenLocalRecordsetRW("wir","select * from wireless_line")
+	f.ODBC.con!wir.AddNew
+	f.ODBC.con!wir.Set!TRANS_ID(V.Global.sTransID)
+	F.ODBC.con!wir.Set!SEQ("0000")
+	F.ODBC.con!wir.Set!TRANS_TYPE("S10")
+	F.ODBC.con!wir.Set!FIELD_1(V.Global.sPack.Trim)
+	F.ODBC.con!wir.Set!FIELD_2(V.Global.sOrder.Trim)
+	F.ODBC.con!wir.Set!FIELD_3(V.Global.sLine.Trim)
+	F.ODBC.con!wir.Set!FIELD_4(V.Global.sPart.Trim)
+	F.ODBC.con!wir.Set!FIELD_5(V.Global.sLoc.Trim)
+	F.ODBC.con!wir.Set!FIELD_6(V.Global.sLot.Trim)
+	F.ODBC.con!wir.Set!FIELD_7(V.Global.sToBin.Trim)
+	F.ODBC.con!wir.Set!FIELD_8(V.Global.sHeat.Trim)
+	F.ODBC.con!wir.Set!FIELD_9(V.Global.sSerial.Trim)
+	F.ODBC.con!wir.Set!FIELD_10("00000000")
+	F.ODBC.con!wir.Set!FIELD_11(V.Global.sPallet.Trim)
+	F.ODBC.con!wir.Set!FIELD_13(v.Local.sCarton.Trim) 'PALLET CODE
+	F.ODBC.con!wir.Set!FIELD_14(V.Local.sQty.Trim)
+	f.ODBC.con!wir.Set!FIELD_15(v.Local.sPartWeight.Trim)
+	'F.ODBC.con!wir.Set!FIELD_16(V.Global.sWeight)  'CARTON WEIGHT
+	F.ODBC.con!wir.Set!FIELD_18(V.Local.sWeight.Trim) 'pallet weight
+	'F.ODBC.con!wir.Set!FIELD_19(V.Global.sTracking) 'pallet tracking number
+	'F.ODBC.con!wir.Set!FIELD_20(0)
+	f.Intrinsic.Control.If(v.Global.bPrint,"=",True)
+		F.ODBC.con!wir.Set!FIELD_24("Y")
+		F.ODBC.con!wir.Set!FIELD_25(1)
+	f.Intrinsic.Control.Else
+		f.ODBC.con!wir.Set!FIELD_24("N")
+		F.ODBC.con!wir.Set!FIELD_25(0)
+	F.Intrinsic.Control.EndIf
+	F.ODBC.con!wir.Set!ERROR_ID(0)
+	F.ODBC.con!wir.Update
+	F.ODBC.con!wir.Close
+
+f.Intrinsic.Debug.SetLa("post the header record")
+Function.ODBC.Connection!con.OpenRecordsetRW("rstNew","SELECT * from WIRELESS_HDR")
+
+	Function.ODBC.con!rstNew.AddNew
+	Function.ODBC.con!rstNew.Set!TRANS_ID(V.Global.sTransID)
+	Function.ODBC.con!rstNew.Set!TRANS_TYPE("S10")
+	Function.ODBC.con!rstNew.Set!ATTEMPTED_DATE("00000000")
+	Function.ODBC.con!rstNew.Set!ATTEMPTED_TIME("00000000")
+	Function.ODBC.con!rstNew.Set!LABEL_PRINTER(V.Global.sPrinter)
+	Function.ODBC.con!rstNew.Set!USER_ID(V.Global.sUser)
+	Function.ODBC.con!rstNew.Set!BATCH(0)
+	F.ODBC.con!rstNew.Update
+	F.ODBC.con!rstNew.Close
+f.Intrinsic.Debug.SetLA("iterate the pallet and trans ID")
+	F.Intrinsic.Math.Add(V.Global.sPallet,1,v.Global.sPallet)
+	f.Intrinsic.String.LPad(v.Global.sPallet,"0",8,v.Global.sPallet)
+	F.Intrinsic.Math.Add(v.Global.sTransID,1,v.Global.sTransID)
+	f.Intrinsic.String.LPad(v.Global.sTransID,"0",9,v.Global.sTransID)
+	
+F.Intrinsic.Control.Next(V.Local.iCount)
+'f.Intrinsic.Math.Add(v.Global.sTransID,1,v.Global.sTransID)
+'f.Intrinsic.String.LPad(v.Global.sTransID,"0",9,V.Global.sTransID)
+f.Intrinsic.String.Build("select SUCCESSFUL_FLAG FROM V_WIRELESS_HDR WHERE TRANS_ID = '{0}'",V.Global.sTransID,v.Local.sSql)
+
+f.Intrinsic.Control.For(v.Local.iCount,1,100,1)
+	f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,"=","Y")
+		f.Intrinsic.Control.ExitFor(v.Local.iCount)
+	f.Intrinsic.control.EndIf
+f.Intrinsic.Control.Next(v.Local.iCount)
+
+gui.Form_Main.lblDone.Visible(True)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.stage.End
+
+Program.Sub.bin2bin.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sQty.Declare(String)
+V.Local.sLot.Declare(String)
+v.Local.sHeat.Declare(String)
+v.Local.sSerial.Declare(String)
+V.Local.sRet.Declare(String)
+V.Local.iCount.Declare(Long)
+
+
+
+f.Intrinsic.String.ConvertToString(v.Global.iShipQty,v.Local.sQty)
+f.Intrinsic.String.Format(v.Local.sQty,"####.0000",v.Local.sQty)
+f.Intrinsic.Debug.SetLA("ship quantity formatted for bin2bin")
+
+
+
+'write to wireless lines table to create the transfer
+v.Local.sSql.Set("Select * from wireless_line")
+Function.ODBC.Connection!con.OpenRecordsetRW("rstNew1",V.Local.sSql)
+
+		Function.ODBC.con!rstNew1.AddNew
+		Function.ODBC.con!rstNew1.Set!TRANS_ID(V.Global.sTransID)
+		Function.ODBC.con!rstNew1.Set!SEQ("0000")
+		Function.ODBC.con!rstNew1.Set!TRANS_TYPE("O90")
+'PART
+		Function.ODBC.con!rstNew1.Set!FIELD_1(V.Global.sPart)
+'LOCATION
+		Function.ODBC.con!rstNew1.Set!FIELD_2(V.Global.sLOC)
+'QUANTITY
+	Function.ODBC.con!rstNew1.Set!FIELD_3(V.Local.sQty)
+
+'FROM BIN
+		Function.ODBC.con!rstNew1.Set!FIELD_4(V.Global.sFrBIN)
+'TO BIN
+		Function.ODBC.con!rstNew1.Set!FIELD_5(V.Global.sToBin)
+'LOT
+		Function.ODBC.con!rstNew1.Set!FIELD_6(V.Global.sLOT)
+		Function.ODBC.con!rstNew1.Set!FIELD_14(V.Global.sLOT)
+'HEAT
+		Function.ODBC.con!rstNew1.Set!FIELD_7(V.Global.sHEAT)
+		Function.ODBC.con!rstNew1.Set!FIELD_15(V.Global.sHEAT)
+'SERIAL
+		Function.ODBC.con!rstNew1.Set!FIELD_8(V.Global.sSERIAL)
+		Function.ODBC.con!rstNew1.Set!FIELD_16(V.Global.sSERIAL)
+
+'OTHER
+		Function.ODBC.con!rstNew1.Set!FIELD_9("0000")
+		Function.ODBC.con!rstNew1.Set!FIELD_10("0000")
+		Function.ODBC.con!rstNew1.Set!FIELD_12("0")
+		Function.ODBC.con!rstNew1.Set!ERROR_ID(0)
+		F.ODBC.con!rstNew1.Update
+		F.ODBC.con!rstNew1.Close
+f.Intrinsic.Debug.SetLA("Wireless line B2B posted to table")
+
+
+
+'write the wireless header record
+V.Local.sSql.Set("SELECT * from WIRELESS_HDR")
+Function.ODBC.Connection!con.OpenRecordsetRW("rstNew",V.Local.sSql)
+
+		Function.ODBC.con!rstNew.AddNew
+		Function.ODBC.con!rstNew.Set!TRANS_ID(V.Global.sTransID)
+		Function.ODBC.con!rstNew.Set!TRANS_TYPE("O90")
+		Function.ODBC.con!rstNew.Set!ATTEMPTED_DATE("00000000")
+		Function.ODBC.con!rstNew.Set!ATTEMPTED_TIME("00000000")
+		Function.ODBC.con!rstNew.Set!LABEL_PRINTER(V.Global.sPrinter)
+		Function.ODBC.con!rstNew.Set!USER_ID(V.Global.sUser)
+		Function.ODBC.con!rstNew.Set!BATCH(0)
+		F.ODBC.con!rstNew.Update
+		F.ODBC.con!rstNew.Close
+f.Intrinsic.Debug.SetLA("Wireless Header B2B posted")
+
+f.Intrinsic.String.Build("select SUCCESSFUL_FLAG FROM V_WIRELESS_HDR WHERE TRANS_ID = '{0}'",V.Global.sTransID,v.Local.sSql)
+f.Intrinsic.Control.For(v.Local.iCount,1,100,1)
+	f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,"=","Y")
+		f.Intrinsic.Control.ExitFor(v.Local.iCount)
+	f.Intrinsic.control.EndIf
+f.Intrinsic.Control.Next(v.Local.iCount)
+
+f.Intrinsic.Debug.SetLA("B2B Successfully processed")
+
+f.Intrinsic.Math.Add(v.Global.sTransID,1,v.Global.sTransID)
+f.Intrinsic.String.LPad(v.Global.sTransID,"0",9,v.Global.sTransID)
+f.Intrinsic.Math.Add(v.Global.iShipQty,v.Global.iStaged,v.Global.iShipQty)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.bin2bin.End
+
+Program.Sub.remove_stage.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+V.Local.sQuantity.Declare(String)
+v.Local.iCount.Declare(Long)
+v.Local.sMsg.Declare(String)
+v.Local.sRet.Declare(String)
+
+
+f.Intrinsic.Math.Add(v.Global.sStaged,0,v.Global.iStaged)
+f.Intrinsic.String.ConvertToString(v.Global.iStaged,v.Local.sQuantity)
+f.Intrinsic.String.Format(v.Local.sQuantity,"####.0000",v.Local.sQuantity)
+
+f.ODBC.Connection!con.OpenLocalRecordsetRW("wir","select * from wireless_line")
+f.ODBC.con!wir.AddNew
+f.ODBC.con!wir.Set!TRANS_ID(V.Global.sTransID)
+F.ODBC.con!wir.Set!SEQ("0000")
+F.ODBC.con!wir.Set!TRANS_TYPE("S30")
+F.ODBC.con!wir.Set!FIELD_1(V.Global.sPack.Trim) 'pack
+F.ODBC.con!wir.Set!FIELD_2(V.Global.sOrder.Trim)  'order
+F.ODBC.con!wir.Set!FIELD_3(V.Global.sLine.Trim) 'order line
+F.ODBC.con!wir.Set!FIELD_4(V.Global.sPart.Trim)  'part
+F.ODBC.con!wir.Set!FIELD_5(V.Global.sLoc.Trim) 'location
+F.ODBC.con!wir.Set!FIELD_6("00000000")
+f.ODBC.con!wir.Set!FIELD_7(V.Global.sPallet.Trim) 'pallet
+F.ODBC.con!wir.Set!FIELD_8(V.Local.sQuantity.Trim)  'order line quantity - already staged quantity
+F.ODBC.con!wir.Set!FIELD_10(V.Global.sOldBin.Trim)  'bin
+F.ODBC.con!wir.Set!ERROR_ID(0)
+F.ODBC.con!wir.Update
+F.ODBC.con!wir.Close
+f.Intrinsic.Debug.SetLA("Remove Staging S30 line posted")
+
+'write the wireless header record
+V.Local.sSql.Set("SELECT * from WIRELESS_HDR")
+Function.ODBC.Connection!con.OpenRecordsetRW("rstNew",V.Local.sSql)
+
+	Function.ODBC.con!rstNew.AddNew
+	Function.ODBC.con!rstNew.Set!TRANS_ID(V.Global.sTransID)
+	Function.ODBC.con!rstNew.Set!TRANS_TYPE("S30")
+	Function.ODBC.con!rstNew.Set!ATTEMPTED_DATE("00000000")
+	Function.ODBC.con!rstNew.Set!ATTEMPTED_TIME("00000000")
+	Function.ODBC.con!rstNew.Set!LABEL_PRINTER(V.Global.sPrinter)
+	Function.ODBC.con!rstNew.Set!USER_ID(V.Global.sUser)
+	Function.ODBC.con!rstNew.Set!BATCH(0)
+	F.ODBC.con!rstNew.Update
+	F.ODBC.con!rstNew.Close
+f.Intrinsic.Debug.SetLA("Remove Staging S30 header posted")
+
+f.Intrinsic.String.Build("select SUCCESSFUL_FLAG FROM V_WIRELESS_HDR WHERE TRANS_ID = '{0}'",V.Global.sTransID,v.Local.sSql)
+f.Intrinsic.Control.For(v.Local.iCount,1,100,1)
+	f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+	f.Intrinsic.Control.If(v.Local.sRet,"=","Y")
+		F.Intrinsic.Control.ExitFor(v.Local.iCount)
+	F.Intrinsic.Control.EndIf
+F.Intrinsic.Control.Next(V.Local.iCount)
+
+f.Intrinsic.Debug.SetLA("S30 Posted successfully")
+
+F.Intrinsic.Math.Add(V.Global.sTransID,1,v.Global.sTransID)
+f.Intrinsic.String.LPad(v.Global.sTransID,"0",9,v.Global.sTransID)
+	
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.remove_stage.End
+
+Program.Sub.txtLot_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+f.Intrinsic.Control.BlockEvents
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.iRet.Declare(String)
+v.Local.sRet.Declare(String)
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+v.Global.sLot.Set(v.Screen.Form_Main!txtLot.Text)
+f.Intrinsic.Control.If(v.Global.sLot.Trim,">","")
+	f.Intrinsic.String.Build("select SUM(IT.QUANTITY) from V_ITEM_MASTER IT WHERE PART = '{0}' AND LOCATION = '{1}' AND BIN = '{2}' AND LOT = '{3}'",V.Global.sPart,v.Global.sLoc,v.Global.sFrBin,v.Global.sLot,v.local.sSql)
+	f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.iRet)
+	f.Intrinsic.Control.If(v.Local.iRet,"<","1")
+		f.Intrinsic.UI.Msgbox("This LOT/BIN Combination has no quantity","No Inventory")
+		gui.Form_Main.txtLot.Text("")
+	f.Intrinsic.Control.ElseIf(v.Local.iRet,"<",v.Global.iShipQty)
+		f.Intrinsic.UI.Msgbox("This LOT/BIN Combination does not have enough quantity available for the Ship Quantity","Not Enough On Hand")
+		gui.Form_Main.txtSerial.Text("")
+	f.Intrinsic.Control.Else
+		F.Intrinsic.String.Format(V.Local.iRet,"####",V.Local.sRet)
+		gui.Form_Main.lblAvailQty.Caption(v.Local.sRet)
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.txtLot_LostFocus.End
+
+Program.Sub.txtSerial_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+f.Intrinsic.Control.BlockEvents
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.iRet.Declare(String)
+V.Local.sRet.Declare(String)
+'Function.Intrinsic.Debug.InvokeDebugger
+'Function.Intrinsic.Debug.Stop
+
+v.Global.sSerial.Set(v.Screen.Form_Main!txtSerial.Text)
+f.Intrinsic.String.Build("select SUM(IT.QUANTITY) from V_ITEM_MASTER IT WHERE PART = '{0}' AND LOCATION = '{1}' AND BIN = '{2}' AND LOT = '{3}' AND SERIAL_NUMBER = '{4}'",V.Global.sPart,v.Global.sLoc,v.Global.sFrBin,v.Global.sLot,V.Global.sSerial,v.local.sSql)
+f.odbc.Connection!con.executeandreturn(v.Local.sSql,v.Local.iRet)
+f.Intrinsic.Control.If(v.Local.iRet,"<","1")
+	f.Intrinsic.UI.Msgbox("This LOT/BIN/Serial Combination has no quantity","No Inventory")
+	gui.Form_Main.txtSerial.Text("")
+f.Intrinsic.Control.ElseIf(v.Local.iRet,"<",v.Global.iShipQty)
+	f.Intrinsic.UI.Msgbox("This LOT/BIN/Serial Combination does not have enough quantity available for the Ship Quantity","Not Enough On Hand")
+	gui.Form_Main.txtSerial.Text("")
+f.Intrinsic.Control.Else
+	f.Intrinsic.String.Format(v.Local.iRet,"####",v.Local.sRet)
+	gui.Form_Main.lblAvailQty.Caption(v.Local.sRet)
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.txtSerial_LostFocus.End
+
+Program.Sub.weight_packing.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sRet.Declare(String)
+
+'get the pcs per pallet
+f.Intrinsic.String.Build("select (cntnrs_per_pallet * pcs_per_cntnr) as per_pallet from inventory_mst3 where part = '{0}' and location = '{1}'",v.Global.sPart,v.Global.sLoc,v.Local.sSql)
+f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+
+gui.Form_Main.txtQtyPP.Text(v.Local.sRet)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.weight_packing.End
+
+Program.Sub.txtPallet_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+f.Intrinsic.Control.BlockEvents
+
+V.Local.sError.Declare(String)
+v.Local.sPallet.Declare(String)
+
+v.Local.sPallet.Set(v.Screen.Form_Main!txtPallet.Text)
+f.Intrinsic.Control.If(v.Local.sPallet.Trim,">","")
+	f.Intrinsic.String.LPad(v.Local.sPallet,"0",8,v.Local.sPallet)
+	gui.Form_Main.txtPallet.Text(v.Local.sPallet)
+	v.Global.sPallet.Set(v.Local.sPallet)
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtPallet_LostFocus.End
+
+Program.Sub.txtLine_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+f.Intrinsic.Control.BlockEvents
+
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.sRet.Declare(String)
+
+
+f.Intrinsic.control.If(v.Global.sOrder,">","000000")
+	v.Global.sLine.Set(v.Screen.Form_Main!txtLine.text)
+	f.Intrinsic.Control.If(v.Global.sLine.Trim,">","")
+		f.Intrinsic.String.Trim(v.Global.sLine,v.Global.sLine)
+		f.Intrinsic.String.LPad(v.Global.sLine,"0",3,v.Global.sLine)
+		gui.Form_Main.txtLine.Text(v.Global.sLine)
+		
+		F.Intrinsic.String.Build("select DISTINCT left(OL.RECORD_NO,3) AS LINE, OL.PART, OL.LOCATION AS LOC, OL.DESCRIPTION, IF (OL.STAGED <> '1' , OL.QTY_BO , OL.QTY_BO - SL.QTY_SHIPPED) AS OPEN_QTY, OL.BLANKET_NO AS BLANKET_ORDER FROM V_ORDER_LINES OL LEFT JOIN V_SHIPMENT_LINES SL ON OL.ORDER_NO = SL.ORDER_NO AND OL.RECORD_NO = SL.ORDER_REC LEFT JOIN V_INVENTORY_MSTR IM ON IM.PART = OL.PART AND IM.LOCATION = OL.LOCATION WHERE OL.ORDER_NO = '{0}' AND LEFT(OL.RECORD_NO,3) = '{1}' AND OPEN_QTY > 0 AND IM.FLAG_LOT = 'Y'",V.Global.sOrder,V.Global.sLine,v.Local.sSql)
+		f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+		
+		f.Intrinsic.Control.If(v.Local.sRet,">","")
+			f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.local.sRet)
+			gui.Form_Main.txtPart.Text(v.Local.sRet(1))
+			GUI.Form_Main.txtLoc.Text(V.Local.sRet(2))
+			gui.Form_Main.txtDesc.Text(v.Local.sRet(3))
+			v.Global.sPart.Set(v.Local.sRet(1))
+			v.Global.sLoc.Set(v.Local.sRet(2))
+			v.Global.iOrdQty.Set(v.Local.sRet(4))
+			gui.Form_Main.lblOrdQty.Caption(v.Global.iOrdQty)
+			f.Intrinsic.Control.CallSub(get_available)
+			f.Intrinsic.Control.CallSub(check_carton)
+			f.Intrinsic.Control.CallSub(weight_packing)
+		f.Intrinsic.Control.EndIf
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.UnBlockEvents
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtLine_LostFocus.End
+
+Program.Sub.txtPackList_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+f.Intrinsic.Control.BlockEvents
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.Local.iOpt.Declare(Long)
+v.Local.sRet.Declare(String)
+
+
+v.Global.sPack.Set(v.Screen.Form_Main!txtPackList.Text)
+
+F.Intrinsic.Control.If(V.Global.sPack.Trim,">","")
+	f.Intrinsic.String.Trim(v.Global.sPack,v.Global.sPack)
+	f.Intrinsic.String.LPad(v.Global.sPack,"0",7,v.Global.sPack)
+	gui.Form_Main.txtPackLIst.Text(v.Global.sPack)
+	'create browser
+	f.Intrinsic.String.Build("select PK.PCK_NO, PK.ORDER_NO, PK.CUST, CM.NAME_CUSTOMER AS NAME, PK.SHP_DATE FROM V_STAGING_BROWSER PK LEFT JOIN V_CUSTOMER_MASTER CM ON PK.CUST = CM.CUSTOMER WHERE PK.PCK_NO = '{0}'",V.Global.sPack,v.Local.sSql)
+	f.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+
+	f.Intrinsic.Control.If(v.Local.sRet,">","")
+		f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.local.sRet)
+		gui.Form_Main.txtOrder.Text(v.Local.sRet(1))
+		v.Global.sOrder.Set(v.Local.sRet(1))
+		V.Global.sCust.Set(v.Local.sRet(2))
+	f.Intrinsic.Control.EndIf
+f.Intrinsic.Control.EndIf
+
+f.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtPackList_LostFocus.End
+
+Program.Sub.txtWeight_LostFocus.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+F.Intrinsic.Control.BlockEvents
+
+V.Local.sError.Declare(String)
+V.Local.fEach.Declare(Float)
+v.Local.fQty.Declare(Float)
+v.Local.fTotal.Declare(Float)
+
+v.Global.sWPP.Set(v.Screen.Form_Main!txtWeight.Text)
+f.Intrinsic.Control.If(v.Global.sWPP.Trim,">","")
+	v.Local.fEach.Set(v.Global.sWPP.Float)
+	f.Intrinsic.Math.Mult(v.Global.iShipQty,v.Local.fEach,v.Local.fTotal)
+	gui.Form_Main.txtTotWeight.Text(v.Local.fTotal)
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.UnBlockEvents
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.txtWeight_LostFocus.End
+
+Program.Sub.getUser_Printer.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sPrinter.Declare(String)
+v.Local.sUID.Declare(String)
+v.Local.sSQL.Declare(String)
+
+f.ODBC.Connection!cony.openconnection(v.Ambient.Ccon,v.Ambient.Cuser,v.Ambient.Cpass)
+f.Intrinsic.String.Build("SELECT UID FROM MOBILE_USER_INFO WHERE USERID = '{0}'",V.Caller.User,V.Local.sSQL)
+F.ODBC.Connection!cony.executeandreturn(v.Local.sSQL,v.Local.sUID)
+F.Intrinsic.Control.If(V.Local.sUID,=,"")
+	F.Intrinsic.UI.Msgbox("Set Up your GS Mobile User ID and secondary label printer in System Support > Administration > GS Mobile Users,NO GS MOBILE USER ID FOUND")
+	F.Intrinsic.Control.CallSub(cmdClear_Click)
+F.Intrinsic.Control.EndIf
+
+f.Intrinsic.String.Build("SELECT NAME FROM MOBILE_USER_PRINTER WHERE (TYPE = '2' OR TYPE = '6') AND UID = '{0}'",v.Local.sUID.Trim,v.Local.sSQL)
+f.ODBC.Connection!cony.executeandreturn(v.Local.sSQL,v.Local.sPrinter)
+f.Intrinsic.Control.If(v.Local.sPrinter,=,"")
+	F.Intrinsic.UI.Msgbox("Select your label printer for your GS Mobile User in System Support > Administration > GS Mobile Users,NO PRINTER FOR USER")
+	F.Intrinsic.Control.CallSub(cmdClear_Click)	
+f.Intrinsic.Control.EndIf
+f.ODBC.Connection!cony.Close
+
+v.Global.sPrinter.Set(v.Local.sPrinter.Trim)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.Debug.SetLA(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.getUser_Printer.End
+
+Program.Sub.cmdBrwFrBin_Click.Start
+F.Intrinsic.Control.SetErrorHandler("Sub_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+v.Local.sSql.Declare(String)
+v.local.sTitles.Declare(String)
+v.Local.iWidths.Declare(Long)
+v.Local.sRet.Declare(String)
+
+'make sure we have an order first
+f.Intrinsic.Control.If(v.Global.sOrder,"=","")
+	f.Intrinsic.UI.Msgbox("No Sales Order Selected, can not select line","Line Error")
+	F.Intrinsic.Control.ExitSub
+F.Intrinsic.Control.EndIf
+'create browser	- display line items from selected order with quantity yet to be staged (BO - QTY_SHIPPED)
+F.Intrinsic.String.Build("select BIN, LOT, HEAT, SERIAL_NUMBER, QUANTITY FROM V_ITEM_MASTER WHERE QUANTITY > '0' AND ALLOCATED <> 'Y' AND PART = '{0}'",V.Global.sPart,v.Local.sSql)
+F.Intrinsic.String.Split("BIN*!*LOT*!*HEAT*!*SERIAL*!*QUANTITY","*!*",V.Local.sTitles)
+F.Intrinsic.String.Split("200*!*300*!*100*!*500*!*200","*!*",V.Local.iWidths)
+F.Intrinsic.UI.SetBrowserHotTypeAhead(True)
+f.Intrinsic.UI.Browser("Select BIN","CON",V.Local.sSql,V.Local.sTitles,V.Local.iWidths,V.Local.sRet)
+'handle return  - updating global vars and form quantities
+F.Intrinsic.Control.If(V.Local.sRet,"=","***CANCEL***")
+	F.Intrinsic.UI.Msgbox("No Bin Selected")
+f.Intrinsic.Control.else
+	F.Intrinsic.String.Split(V.Local.sRet,"*!*",V.Local.sRet)
+	gui.Form_Main.txtFrBin.Text(v.Local.sRet(0).trim)
+	v.Global.sFrBin.Set(v.Local.sRet(0).trim)
+	gui.Form_Main.txtLot.Text(v.Local.sRet(1).trim)
+	v.Global.sLot.Set(v.Local.sRet(1).trim)
+	gui.Form_Main.txtSerial.Text(v.Local.sRet(3).trim)
+	v.Global.sSerial.Set(v.Local.sRet(3).trim)
+f.Intrinsic.Control.EndIf
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Sub_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+	Function.Intrinsic.String.Concat("Project: Project",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+	F.Intrinsic.UI.Msgbox(V.Local.sError)
+Function.Intrinsic.Control.EndIf
+Program.Sub.cmdBrwFrBin_Click.End
+
+
