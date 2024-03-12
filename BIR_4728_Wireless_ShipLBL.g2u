@@ -1,0 +1,190 @@
+Program.Sub.ScreenSU.Start
+Program.Sub.ScreenSU.End
+
+Program.Sub.Preflight.Start
+
+Variable.Global.iBIRunID.Declare(Long,-1)
+Variable.Global.iBILogID.Declare(Long,-1)
+Variable.Global.iBIRptID.Declare(Long,-1)
+Variable.Global.bSentinel.Declare(Boolean,False)
+Program.Sub.Preflight.End
+
+Program.Sub.Main.Start
+F.Intrinsic.Control.SetErrorHandler("Main_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+
+F.ODBC.Connection!con.OpenConnection(V.Ambient.PDSN,V.Ambient.PUser,V.Ambient.PPass)
+F.Intrinsic.Control.CallSub(Loaddata)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Main_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+    Function.Intrinsic.String.Concat("Project: BIR_4728_Wireless_ShipLBL.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+    F.Intrinsic.UI.Msgbox(V.Local.sError)
+    F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+
+Program.Sub.Main.End
+
+Program.Sub.Unload.Start
+F.Intrinsic.Control.SetErrorHandler("Unload_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+
+F.ODBC.Connection!con.Close
+F.Intrinsic.Control.End
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("Unload_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+    Function.Intrinsic.String.Concat("Project: BIR_4728_Wireless_ShipLBL.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+    F.Intrinsic.UI.Msgbox(V.Local.sError)
+    F.Intrinsic.Control.End
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.Unload.End
+
+Program.Sub.LoadData.Start
+F.Intrinsic.Control.SetErrorHandler("LoadData_Err")
+F.Intrinsic.Control.ClearErrors
+
+V.Local.sError.Declare(String)
+V.Local.sSql.Declare(String)
+V.Local.iUB.Declare(Long)
+v.Local.sParamNames.Declare(String)
+v.Local.sParamValues.Declare(String)
+v.Local.sTransID.Declare(String)
+v.Local.stemp.Declare(String)
+v.Local.sFile.Declare(String)
+V.Local.bExists.Declare(boolean)
+v.Local.iRet.Declare(Long)
+v.Local.sID.Declare(String)
+v.Local.sRet.Declare(String)
+v.Local.sPrinter.Declare(String)
+V.Local.sFilePath.Declare(String)
+V.Local.iCounter.Declare(Long)
+
+'Getting run ID passed down
+V.Global.iBIRunID.Set(V.Passed.DATA-GAB-0)
+'Getting log ID passed down
+V.Global.iBILogID.Set(V.Passed.DATA-GAB-1)
+'Getting Sentinel flag passed down
+Variable.Global.bSentinel.Set(Variable.Passed.DATA-GAB-2)
+'Get the trans_id and split to a useable value
+f.Intrinsic.String.Split(v.Passed.DATA-GAB-4,"@!@",v.Local.sTemp)
+f.Intrinsic.String.Split(v.Local.sTemp,"##",v.Local.sID)
+v.Local.sTransID.Set(v.Local.sID(1))
+
+F.ODBC.Connection!CONY.OPENCONNECTION(V.Ambient.Ccon,V.Ambient.Cuser,V.Ambient.Cpass)
+'get user and printer form wireless header
+f.Intrinsic.String.Build("SELECT USER_ID, LABEL_PRINTER FROM WIRELESS_HDR WHERE TRANS_ID = '{0}'",V.Local.sTransID,V.Local.sSql)
+F.ODBC.Connection!con.executeandreturn(v.Local.sSql,v.Local.sRet)
+f.Intrinsic.String.Split(v.Local.sRet,"*!*",v.Local.stemp)
+
+f.Intrinsic.String.Build("SELECT UID FROM MOBILE_USER_INFO WHERE GSUSERNAME = '{0}'",V.Local.stemp(0),V.Local.sSql)
+F.ODBC.Connection!CONY.executeandreturn(v.Local.sSql,v.Local.sRet)
+
+f.Intrinsic.String.Build("select NAME from mobile_user_printer where (type = '2' or type = '6') and UID = '{0}'",v.Local.sRet,v.Local.sSql)
+f.ODBC.Connection!CONY.executeandreturn(v.Local.sSql,v.Local.sPrinter)
+
+f.Intrinsic.Control.If(v.Global.bSentinel,"=",True)
+	f.Global.BI.GetIDFromName("OE_4728_Wireless_ShipLBL.lab",v.Global.iBIRptID)
+f.Intrinsic.Control.Else
+	f.Global.BI.GetIDFromName("GCG_4728_Wireless_ShipLBL.rpt",v.Global.iBIRptID)
+f.Intrinsic.Control.EndIf
+
+
+'Loading data from Y table, as being label being printed from Menu, Selecting all fields as all fields are transferred over from Y table to Z table
+F.Intrinsic.String.Build("Select YT.*, OH.CODE_SORT AS ORDER_SORT_1, OH.ORDER_SORT_2 From Y_OE_SHIP_WL YT LEFT JOIN V_ORDER_HEADER OH ON YT.SO_NBR = OH.ORDER_NO where YT.RUNID = {0}",V.Global.iBIRunID,V.Local.sSql)
+F.Data.DataTable.CreateFromSQL("LABEL","CON",V.Local.sSql,True)
+
+
+f.Data.DataTable.AddColumn("LABEL","LOGO","STRING")
+'Check to see if we have a logo file for this customer - add path and file information for logo
+v.Local.stemp.Set(v.DataTable.LABEL(0).CUST_NO!FIELDVALTRIM)
+F.Intrinsic.String.Build("{0}\{1}\{2}{3}",V.Caller.BusintDir,"LABELS\CUSTOM\",V.Local.stemp,".JPG",V.Local.sFile)
+F.Intrinsic.File.Exists(V.Local.sFile,V.Local.bExists)
+F.Intrinsic.Control.If(V.LOCAL.bExists,"=","True")
+	f.Data.DataTable.SetValue("LABEL",-1,"LOGO",V.Local.sFile)
+F.Intrinsic.Control.Else
+	F.Intrinsic.String.Build("{0}\{1}\{2}{3}",V.Caller.BusintDir,"LABELS\CUSTOM\","LOGO",".JPG",V.Local.sFile)
+	f.Data.DataTable.SetValue("LABEL",-1,"LOGO",V.Local.sFile)
+F.Intrinsic.Control.EndIf
+
+
+'Checking to see if sequence being printed is Codesoft label
+Function.Intrinsic.Control.If(Variable.Global.bSentinel,=,True)
+
+	'Stopping Logging
+	F.Global.BI.StopLogging(V.Global.iBILogID)
+
+	'Printing Codesoft label
+	F.Global.BI.PrintCodesoftLabelFromDataTable(V.Global.iBIRunID,V.Global.iBILogID,"LABEL","",True)
+	f.Global.BI.PrintCodesoftLabelFromDataTable(v.Global)
+
+f.Intrinsic.Control.Else
+	
+	v.Local.sTransID.Set(v.DataTable.LABEL(0).TRANS_ID!FIELDVALTRIM)
+	f.Intrinsic.String.Build("{0}","Trans_Id",v.Local.sParamNames)
+	f.Intrinsic.String.build("{0}",V.Local.sTransID,V.Local.sParamValues)
+	F.Intrinsic.String.Split(V.Local.sParamNames,"*!*",V.Local.sParamNames)
+	F.Intrinsic.String.Split(V.Local.sParamValues,"*!*",V.Local.sParamValues)
+	F.Intrinsic.String.Build("{0}\SHIP_LBL_TEMP\{1}_{2}.pdf",V.Caller.FilesDir,V.Local.sTransID,V.Ambient.Now.FormatMMDDYYYY,V.Local.sFilePath)
+	'F.Global.BI.RunReportPreProcessor(v.Global.iBIRunID,v.Global.iBILogID,v.Local.sParamNames,v.Local.sParamValues,"",8,True,"",-1,v.Local.sPrinter,-1,"","",v.Local.iRet)
+	'F.Global.BI.RunReportPreProcessor(v.Global.iBIRunID,v.Global.iBILogID,v.Local.sParamNames,v.Local.sParamValues,"",16,True,"",-1,v.Local.sPrinter,-1,"","",v.Local.iRet)
+	F.Global.BI.RunReportPreProcessor(v.Global.iBIRunID,v.Global.iBILogID,v.Local.sParamNames,v.Local.sParamValues,"",4,True,"",-1,v.Local.sPrinter,0,V.Local.sFilePath,"",v.Local.iRet)
+	
+	F.Intrinsic.File.Exists(V.Local.sFilePath,V.Local.bExists)
+	
+	F.Intrinsic.Control.If(V.Local.bExists)
+	
+		Function.Intrinsic.Task.ShellExec(V.Caller.Handle,"PrintTo",V.Local.sFilePath,v.Local.sPrinter,"",1)
+	F.Intrinsic.Control.Else
+		F.Intrinsic.Control.DoUntil(V.Local.bExists,=,True)
+			F.Intrinsic.Math.Add(V.Local.iCounter,1,V.Local.iCounter)
+			
+			F.Intrinsic.File.Exists(V.Local.sFilePath,V.Local.bExists)
+			
+			F.Intrinsic.Control.If(V.Local.iCounter,=,10000)
+				F.Intrinsic.Control.ExitDo
+			F.Intrinsic.Control.EndIf
+		F.Intrinsic.Control.Loop
+		
+		Function.Intrinsic.Task.ShellExec(V.Caller.Handle,"PrintTo",V.Local.sFilePath,v.Local.sPrinter,"",1)
+	F.Intrinsic.Control.EndIf
+
+'	f.Global.BI.PrintReport(v.Global.iBIRptID,8,V.Local.sParamNames,V.Local.sParamValues,False)
+
+F.Intrinsic.Control.EndIf
+	
+
+	
+
+
+Function.Intrinsic.Control.CallSub(Unload)
+
+F.Intrinsic.Control.ExitSub
+
+F.Intrinsic.Control.Label("LoadData_Err")
+F.Intrinsic.Control.If(V.Ambient.ErrorNumber,<>,0)
+    Function.Intrinsic.String.Concat("Project: BIR_4728_Wireless_ShipLBL.g2u",V.Ambient.Newline,V.Ambient.Newline,"Subroutine: ",V.Ambient.CurrentSubroutine,V.Ambient.NewLine,"Error Occurred ",V.Ambient.ErrorNumber," with description ",V.Ambient.ErrorDescription,V.Local.sError)
+    F.Intrinsic.UI.Msgbox(V.Local.sError)
+    F.Intrinsic.Control.CallSub(Unload)
+Function.Intrinsic.Control.EndIf
+
+
+Program.Sub.LoadData.End
+
+
+Program.Sub.Comments.Start
+${$0$}$BIR_PU_PO_
+$}$$}$12:00:00 AM
+Program.Sub.Comments.End
+
